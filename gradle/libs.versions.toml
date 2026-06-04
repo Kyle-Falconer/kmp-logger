@@ -1,0 +1,32 @@
+[versions]
+agp_version = "9.0.1"
+assertk_version = "0.28.1"
+atomicfu_version = "0.33.0"
+binary_compatibility_version = "0.18.1"
+coroutine_version = "1.11.0"
+detekt_version = "1.23.8"
+kotlin_version = "2.4.0"
+ktlint_gradle_version = "14.2.0"
+vanniktech_version = "0.36.0"
+
+[libraries]
+atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfu_version" }
+
+# Coroutines
+kotlin_coroutines_core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutine_version" }
+kotlin_coroutines_test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutine_version" }
+
+# Kotlin
+kotlin_bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin_version" }
+
+# Kotlin Tests
+kotlin_test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin_version" }
+assert_k = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk_version" }
+
+[plugins]
+androidKmpLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp_version" }
+binary_validator_plugin = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binary_compatibility_version" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt_version" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin_version" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint_gradle_version" }
+vanniktech_publication = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech_version" }

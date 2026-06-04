@@ -1,0 +1,64 @@
+public final class software/amazon/app/kmplogger/DefaultLoggingStrategy : software/amazon/app/kmplogger/LoggingStrategy {
+	public fun <init> ()V
+	public fun logMessage (Lsoftware/amazon/app/kmplogger/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+}
+
+public final class software/amazon/app/kmplogger/LogExtensionsKt {
+	public static final fun getLogger (Ljava/lang/Object;)Ljava/lang/String;
+	public static final fun getLogger (Lkotlinx/coroutines/CoroutineScope;)Ljava/lang/Void;
+	public static final fun getLogger-XOMoge8 (Ljava/lang/String;)Ljava/lang/Void;
+}
+
+public final class software/amazon/app/kmplogger/LogLevel : java/lang/Enum {
+	public static final field DEBUG Lsoftware/amazon/app/kmplogger/LogLevel;
+	public static final field ERROR Lsoftware/amazon/app/kmplogger/LogLevel;
+	public static final field INFO Lsoftware/amazon/app/kmplogger/LogLevel;
+	public static final field VERBOSE Lsoftware/amazon/app/kmplogger/LogLevel;
+	public static final field WARN Lsoftware/amazon/app/kmplogger/LogLevel;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun getLevel ()I
+	public static fun valueOf (Ljava/lang/String;)Lsoftware/amazon/app/kmplogger/LogLevel;
+	public static fun values ()[Lsoftware/amazon/app/kmplogger/LogLevel;
+}
+
+public final class software/amazon/app/kmplogger/Logger {
+	public static final field Companion Lsoftware/amazon/app/kmplogger/Logger$Companion;
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lsoftware/amazon/app/kmplogger/Logger;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun d-impl (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun d-impl$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+	public static final fun e-impl (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun e-impl$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public static final fun i-impl (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun i-impl$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+	public static final fun v-impl (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun v-impl$default (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+	public static final fun w-impl (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun w-impl$default (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+}
+
+public final class software/amazon/app/kmplogger/Logger$Companion {
+	public final fun configure (Lsoftware/amazon/app/kmplogger/LogLevel;Ljava/lang/String;Lsoftware/amazon/app/kmplogger/LoggingStrategy;)V
+	public static synthetic fun configure$default (Lsoftware/amazon/app/kmplogger/Logger$Companion;Lsoftware/amazon/app/kmplogger/LogLevel;Ljava/lang/String;Lsoftware/amazon/app/kmplogger/LoggingStrategy;ILjava/lang/Object;)V
+	public final fun getLoggingStrategy ()Lsoftware/amazon/app/kmplogger/LoggingStrategy;
+	public final fun getMinLevel ()Lsoftware/amazon/app/kmplogger/LogLevel;
+	public final fun getTagPrefix ()Ljava/lang/String;
+}
+
+public abstract interface class software/amazon/app/kmplogger/LoggingStrategy {
+	public abstract fun logMessage (Lsoftware/amazon/app/kmplogger/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
+	public static synthetic fun logMessage$default (Lsoftware/amazon/app/kmplogger/LoggingStrategy;Lsoftware/amazon/app/kmplogger/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+}
+
+public final class software/amazon/app/kmplogger/LoggingStrategy$DefaultImpls {
+	public static synthetic fun logMessage$default (Lsoftware/amazon/app/kmplogger/LoggingStrategy;Lsoftware/amazon/app/kmplogger/LogLevel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;ILjava/lang/Object;)V
+}
+
