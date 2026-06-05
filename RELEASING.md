@@ -13,16 +13,12 @@
    git commit -am "Releasing 0.1.0."
    git tag 0.1.0
    ```
-5. Publish the artifacts:
-   ```
-   ./gradlew publishAllPublicationsToMavenCentralRepository
-   ```
-6. Update the version in `gradle.properties` and add the `-SNAPSHOT` suffix.
-7. Commit the change:
+5. Update the version in `gradle.properties` and add the `-SNAPSHOT` suffix.
+6. Commit the change:
    ```
    git commit -am "Prepare next development version."
    ```
-8. Push the two commits:
+7. Push the two commits:
    ```
    git push && git push --tags
    ```
@@ -30,13 +26,15 @@
 ## Snapshot Releases
 
 1. Verify in `gradle.properties` that the version has a `-SNAPSHOT` suffix.
-2. Publish the artifacts:
-   ```
-   ./gradlew publishAllPublicationsToMavenCentralRepository
-   ```
+2. Snapshot releases are automatically created whenever a commit to the main branch is pushed.
 
 ## Installing in Maven Local
 
 ```
 ./gradlew publishToMavenLocal
+```
+## Manually uploading a release
+Depending on the version in the gradle.properties file it will be either a production or snapshot release.
+```
+./gradlew clean publish --no-build-cache
 ```
