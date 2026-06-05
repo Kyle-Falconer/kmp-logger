@@ -21,7 +21,7 @@ jobs:
       contents: write
 
     runs-on: macos-latest-xlarge
-    if: github.repository == 'amzn/app-platform'
+    if: github.repository == 'amzn/kmp-logger'
     timeout-minutes: 60
 
     steps:
@@ -36,7 +36,6 @@ jobs:
       - name: Publish release
         run: |
           ./gradlew clean publishAndReleaseToMavenCentral -PRELEASE_SIGNING_ENABLED=true --no-build-cache --stacktrace --show-version --no-configuration-cache
-          ./gradlew -p gradle-plugin clean publishAndReleaseToMavenCentral -PRELEASE_SIGNING_ENABLED=true --no-build-cache --stacktrace --show-version --no-configuration-cache
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.SONATYPE_PORTAL_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.SONATYPE_PORTAL_PASSWORD }}
