@@ -8,6 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+### Other Notes & Contributions
+
+## [0.0.1] - 2026-6-10
+
 - Initial release of KMPLogger
 - `Logger` value class with zero-allocation logging
 - `LogLevel` enum (VERBOSE, DEBUG, INFO, WARN, ERROR)
@@ -18,4 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configurable minimum log level
 - Optional tag prefix support
 - Thread-safe configuration
-- Binary compatibility validation
+
+[Unreleased]: https://github.com/amzn/kmp-logger/compare/0.0.1...HEAD
+[0.0.1]: https://github.com/amzn/kmp-logger/compare/0.0.1
+
