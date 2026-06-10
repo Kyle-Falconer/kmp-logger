@@ -84,6 +84,43 @@ fun standalone() {
 }
 ```
 
+## Motivations
+
+We built KMPLogger to address several needs when logging across Kotlin Multiplatform projects
+targeting Android, iOS, and JVM:
+
+- **Zero-cost when disabled.** Log messages use an inlined string-producing lambda. If logging is
+  disabled for a given level, the lambda is never evaluated, so string interpolation and
+  concatenation have no performance cost in production builds.
+
+- **Automatic tag with no stacktrace.** The `logger` extension property on `Any` extracts the class
+  name via `this::class` at the call site without creating a stacktrace. This gives you a meaningful
+  tag for free while avoiding the overhead of stack walking that other libraries use.
+
+- **True multiplatform, native output.** Each platform logs through its native mechanism — Logcat on
+  Android, `os_log` on iOS, and `println` on JVM. This means logs integrate with each platform's
+  tooling (filtering in Logcat, Console.app on macOS/iOS, etc.) without extra setup.
+
+- **Optional by design.** KMPLogger writes to the same native output as any other logger on each
+  platform. Modules that use a different logging library still have their logs appear in the same
+  place. There's no requirement for all modules to adopt KMPLogger — it coexists peacefully.
+
+- **Simple API surface.** One method per log level (`v`, `d`, `i`, `w`, `e`) with a lambda for the
+  message. No overload explosion. Throwables are an optional named parameter rather than a separate
+  set of methods.
+
+- **Pluggable strategy.** The `LoggingStrategy` interface lets you redirect logs to files, remote
+  services, or custom formatters without changing call sites. The default writes to the platform
+  console.
+
+- **Configure once, use everywhere.** Global configuration (minimum level, tag prefix, strategy)
+  is set once at app startup and enforced across all loggers. Attempting to reconfigure throws,
+  preventing accidental mid-run changes that could cause inconsistent behavior.
+
+- **Value class implementation.** `Logger` is a `@JvmInline value class` wrapping a tag string, so
+  creating logger instances allocates nothing on the heap. This makes the `Any.logger` pattern
+  viable even in hot paths.
+- 
 ## Contributing
 See [CONTRIBUTING](CONTRIBUTING) for more information.
 
