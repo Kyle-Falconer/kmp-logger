@@ -17,6 +17,21 @@ dependencies {
 }
 ```
 
+#### Android Requirements
+
+For Android applications, ensure your `compileSdk` and `targetSdk` are set to **36 or higher**:
+
+```kotlin
+android {
+    compileSdk = 36
+    
+    defaultConfig {
+        targetSdk = 36
+        // ...
+    }
+}
+```
+
 ## Usage
 
 ### Configuration
