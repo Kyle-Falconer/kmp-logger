@@ -13,7 +13,7 @@ their logs will still show up as expected.
 
 ```kotlin
 dependencies {
-    implementation("software.amazon.app.kmplogger:kmp-logger-public:0.0.1")
+    implementation("software.amazon.app.kmplogger:kmp-logger-log:0.0.1")
 }
 ```
 
