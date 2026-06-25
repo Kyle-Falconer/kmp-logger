@@ -36,20 +36,24 @@ kotlin {
         }
     }
 
-    listOf(
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            baseName = "KMPLogger"
-            isStatic = true
-        }
+    val iosTargets = listOf(iosArm64(), iosSimulatorArm64())
+    val macosTargets = listOf(macosArm64(), macosX64())
+
+    (iosTargets + macosTargets).forEach {
         it.compilerOptions {
             freeCompilerArgs.addAll(
                 "-opt-in=kotlinx.cinterop.ExperimentalForeignApi",
                 "-Xadd-light-debug=enable",
                 "-Xexport-kdoc",
             )
+        }
+    }
+
+    // Frameworks are only needed for Xcode/iOS app consumption.
+    iosTargets.forEach {
+        it.binaries.framework {
+            baseName = "KMPLogger"
+            isStatic = true
         }
     }
 
@@ -79,8 +83,8 @@ kotlin {
         androidMain {
             kotlin.srcDir("public/src/androidMain/kotlin")
         }
-        iosMain {
-            kotlin.srcDir("public/src/iosMain/kotlin")
+        appleMain {
+            kotlin.srcDir("public/src/appleMain/kotlin")
         }
     }
 }

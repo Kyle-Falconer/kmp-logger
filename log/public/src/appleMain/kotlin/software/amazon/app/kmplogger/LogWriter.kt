@@ -11,10 +11,11 @@ import platform.darwin.__dso_handle
 import platform.darwin._os_log_internal
 
 /**
- * iOS-specific implementation that writes log messages using the native [_os_log_internal] API.
+ * Apple-platform implementation (iOS and macOS) that writes log messages using the native
+ * [_os_log_internal] API.
  *
  * This implementation:
- * 1. Maps Kotlin log levels to iOS log types:
+ * 1. Maps Kotlin log levels to os_log types:
  *    - [LogLevel.VERBOSE], [LogLevel.DEBUG] → [OS_LOG_TYPE_DEBUG]
  *    - [LogLevel.INFO] → [OS_LOG_TYPE_INFO]
  *    - [LogLevel.WARN] → [OS_LOG_TYPE_DEFAULT]
