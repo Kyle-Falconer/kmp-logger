@@ -1,10 +1,10 @@
 # KMPLogger
 
 KMPLogger is a Kotlin Multiplatform (KMP) logging library that provides a unified logging mechanism
-for applications targeting Android, iOS, and JVM.
+for applications targeting Android, iOS, macOS, and JVM.
 
 The logger default implementation logs to the platform's native console
-(Logcat on Android, os_log on iOS, println on JVM), so if some modules use a different logger,
+(Logcat on Android, os_log on iOS and macOS, println on JVM), so if some modules use a different logger,
 their logs will still show up as expected.
 
 ## Setup
@@ -102,7 +102,7 @@ fun standalone() {
 ## Motivations
 
 We built KMPLogger to address several needs when logging across Kotlin Multiplatform projects
-targeting Android, iOS, and JVM:
+targeting Android, iOS, macOS, and JVM:
 
 - **Zero-cost when disabled.** Log messages use an inlined string-producing lambda. If logging is
   disabled for a given level, the lambda is never evaluated, so string interpolation and
@@ -113,7 +113,7 @@ targeting Android, iOS, and JVM:
   tag for free while avoiding the overhead of stack walking that other libraries use.
 
 - **True multiplatform, native output.** Each platform logs through its native mechanism — Logcat on
-  Android, `os_log` on iOS, and `println` on JVM. This means logs integrate with each platform's
+  Android, `os_log` on iOS and macOS, and `println` on JVM. This means logs integrate with each platform's
   tooling (filtering in Logcat, Console.app on macOS/iOS, etc.) without extra setup.
 
 - **Optional by design.** KMPLogger writes to the same native output as any other logger on each
